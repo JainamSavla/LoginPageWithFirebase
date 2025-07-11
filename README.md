@@ -1,4 +1,5 @@
 <img width="534" height="630" alt="image" src="https://github.com/user-attachments/assets/de583467-58d6-4359-971a-00a90817338f" />
+<img width="399" height="697" alt="image" src="https://github.com/user-attachments/assets/1be5deda-e60f-4e91-b274-c3f9aaafac0a" />
 
 🔐 Firebase Auth Login & Register Form
 A complete user authentication system built with Firebase Authentication and Firestore. This project includes:
