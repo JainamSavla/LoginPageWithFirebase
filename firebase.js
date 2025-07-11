@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
- import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,GoogleAuthProvider,signInWithPopup} from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
+ import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword,GoogleAuthProvider,signInWithPopup, sendPasswordResetEmail} from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
  import{getFirestore, setDoc, doc} from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js"
  
  const firebaseConfig = {
@@ -110,3 +110,24 @@ async function handleGoogleSignIn() {
 // Add listeners for both Google buttons
 document.getElementById('googleSignUpBtn').addEventListener('click', handleGoogleSignIn);
 document.getElementById('googleSignInBtn').addEventListener('click', handleGoogleSignIn);
+
+const reset = document.getElementById("recover");
+reset.addEventListener("click", async function(event) {
+    event.preventDefault();
+    const email = document.getElementById("email").value;
+    
+    if (!email) {
+        showMessage('Please enter your email address', 'signInMessage');
+        return;
+    }
+
+    try {
+        await sendPasswordResetEmail(auth, email);
+        showMessage('Password reset email sent! Please check your inbox', 'signInMessage');
+    } catch (error) {
+        const errorMessage = error.code === 'auth/user-not-found' 
+            ? 'No account found with this email'
+            : 'Failed to send reset email. Please try again';
+        showMessage(errorMessage, 'signInMessage');
+    }
+});
