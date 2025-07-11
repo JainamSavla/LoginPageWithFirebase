@@ -3,12 +3,7 @@ import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/fi
 import { getFirestore, getDoc, doc } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDfcgk7nrDfC-hM_iDkKsGzU90uEicwhNY",
-   authDomain: "login-form-992fd.firebaseapp.com",
-   projectId: "login-form-992fd",
-   storageBucket: "login-form-992fd.firebasestorage.app",
-   messagingSenderId: "465154906827",
-   appId: "1:465154906827:web:8779e28ea473d3c02e194e"
+    //add your own api key
   };
  
   // Initialize Firebase
